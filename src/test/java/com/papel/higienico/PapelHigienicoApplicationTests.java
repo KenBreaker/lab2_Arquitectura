@@ -24,7 +24,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest
 public class PapelHigienicoApplicationTests {
     @Before
-    @Test //
+    @Test // CREATE
     public void postTest(){
         int ResponseCode = 0;
         try {
@@ -108,7 +108,7 @@ public class PapelHigienicoApplicationTests {
         Assert.assertFalse("Error: "+ResponseCode , ResponseCode!=200);
     }
     
-    @Test // READ
+    @Test // DELETE
     public void deleteTest() {
         int ResponseCode = 0;
         try {
