@@ -13,7 +13,6 @@ import java.io.Serializable;
 @EntityListeners(AuditingEntityListener.class)
 public class Paper implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
@@ -22,6 +21,13 @@ public class Paper implements Serializable {
     @NotBlank
     private String description;
 
+    public long getId() {
+    	return this.id;
+    }
+    public void setId(long aux) {
+    	this.id = aux;
+    }
+    
     public String getBrand() {
     	return this.brand;
     }

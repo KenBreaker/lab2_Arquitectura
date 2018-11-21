@@ -20,7 +20,7 @@ public class PapelHigienicoController {
     
     // CREATE
     @PostMapping("/paper")
-    public Paper createPaper(@Valid @RequestBody Paper paper) {
+    public Paper createPaper(@Valid @RequestBody Paper paper) { 
         return papelHigienicoRepository.save(paper);
     }
     
@@ -43,7 +43,6 @@ public class PapelHigienicoController {
                                             @Valid @RequestBody Paper paperDetails) {
     	Paper paper = papelHigienicoRepository.findById(paperId)
                 .orElseThrow(() -> new PapelitoNotFound("Paper", "id", paperId));
-
     	paper.setBrand(paperDetails.getBrand());
     	paper.setDescription(paperDetails.getDescription());
 
