@@ -20,8 +20,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class PapelHigienicoApplicationTests {
     @Before
     @Test // CREATE
@@ -51,7 +49,7 @@ public class PapelHigienicoApplicationTests {
             } catch (IOException e) {
 		e.printStackTrace();
 	}
-        Assert.assertFalse("Error: "+ResponseCode , ResponseCode!=200);
+        Assert.assertFalse("Codigo de Error: "+ResponseCode , ResponseCode!=200);
        }
     
     @Test // READ
@@ -75,7 +73,7 @@ public class PapelHigienicoApplicationTests {
 		} catch (IOException e) {
                     e.printStackTrace();
 		}
-                Assert.assertFalse("Error: "+ResponseCode , ResponseCode!=200);
+                Assert.assertFalse("Codigo de Error: "+ResponseCode , ResponseCode!=200);
     }
     
     @Test // UPDATE
@@ -105,7 +103,7 @@ public class PapelHigienicoApplicationTests {
             } catch (IOException e) {
 		e.printStackTrace();
 	}
-        Assert.assertFalse("Error: "+ResponseCode , ResponseCode!=200);
+        Assert.assertFalse("Codigo de Error: "+ResponseCode , ResponseCode!=200);
     }
     
     @Test // DELETE
@@ -123,7 +121,7 @@ public class PapelHigienicoApplicationTests {
             } catch (IOException e) {
 		e.printStackTrace();
 	}
-        Assert.assertFalse("Error: "+ResponseCode , ResponseCode!=200);
+        Assert.assertFalse("Codigo de Error: "+ResponseCode , ResponseCode!=200);
     }
     
 }

@@ -1,0 +1,32 @@
+version: '3'
+volumes:
+  db_init: {}
+services:
+  mysql:
+    container_name: some-mysql
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_DATABASES: papeles
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+      MYSQL_MY_DATABASE: papeles
+      MYSQL_ROOT_HOST: '%'
+    ports:
+    - "3306:3306"
+    restart: always
+    volumes:
+    - db_init:/var/lib/mysql
+    - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+  lab2:
+    restart: always
+    build: ./lab2
+    working_dir: /lab2
+    volumes:
+      - ./lab2:/lab2
+      - ~/.m2:/root/.m2
+    ports:
+    - "8080:8080"
+    command: mvn clean spring-boot:run
+    depends_on:
+      - mysql
